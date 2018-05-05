@@ -2,11 +2,11 @@
 
 ## Instructions
 
-Download of pull the repo. 
+Download zip file.
 Click on index.html and open in your browser
 Enjoy
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-Code by Michael O'Sullivan
+This was originally supplied by Udacity as a FEND project. 
+Code by Michael O'Sullivan. 
