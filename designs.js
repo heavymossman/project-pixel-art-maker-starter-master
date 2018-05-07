@@ -38,14 +38,35 @@ function makeGrid() {
 
 	console.log(inputHeight + " " + inputWeight);
 
-	//This adds the td to the tr
-	row.appendChild(column);
+	// For loop will run time until all the rows are created
 
-	//This adds the tr to the main table
-	table.appendChild(row);
+	for (var i = 0; i < inputHeight; i++ ) {
 
+		
+		let newRow = document.createElement("TR"); // this created the rows
 
-}
+		//Nested for loop in the original loop to created the TD within each row
+
+		for (var j = 0; j < inputWeight; j++) {
+
+			let newCols = document.createElement("TD");
+
+			newCols.addEventListener('click', function respondToTheClick(evt) {
+              console.log('A paragraph was clicked.');
+              
+              newCols.style.backgroundColor = "grey";
+          	});
+			//append the new TD with each row
+			newRow.appendChild(newCols);
+		};
+
+		//append the completed grid to the table body
+
+		table.appendChild(newRow);
+
+	};
+
+};
 
 
 //This function will launch onChange of the HTML colour picker
@@ -55,10 +76,10 @@ function myColour(){
 	color = document.getElementById('colorPicker').value;
 
 	//Sets a new var d which selects the table and the rows first element.
-	let d = table.getElementsByTagName('tr')[0];
+	let d = table.getElementsByTagName('td')[0];
 
 	//This changes the background of the table rows first element to the colour hex picker
 	d.style.backgroundColor = color;
 
 	
-}
+};
