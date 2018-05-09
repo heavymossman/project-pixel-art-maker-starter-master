@@ -1,11 +1,6 @@
-// Select color input
-// Select size input
-
-let inputHeight, inputWeight, color, table, row, column;
+let inputHeight, inputWeight, color, table;
 
 //This will set variables to create the table HTML elements
-row = document.createElement("TR");
-column = document.createElement("TD");
 table = document.getElementById('pixelCanvas');  
 
 // When size is submitted by the user, call makeGrid()
