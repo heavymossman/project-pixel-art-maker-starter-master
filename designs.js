@@ -16,15 +16,13 @@ document.getElementById("submit").addEventListener("click", function(event){
     event.preventDefault()
 });
 
-
-//Setting the default colour as a JS variable onload. Rather than take it from the picker we can defauly to block as it resets to black on apge loads
-color = '#000000';
-console.log(color);
-
-
 //This function loads the value of the colour picker and is run on event change via the HTML
-
-
+function respondToTheClick(evt){
+	//Stores the colour selected in the var color
+	color = document.getElementById('colorPicker').value;
+	//The target sets the indivudal child elements of the table, where we set the overall event listener (rather than created indivudal listenrs)
+	evt.target.style.backgroundColor = color;
+};
 
 function makeGrid() {
 
@@ -35,8 +33,6 @@ function makeGrid() {
 	//User inputs come in as strings so this converts them into integars
 	inputHeight = parseInt(inputHeight);
 	inputWeight = parseInt(inputWeight);
-
-	console.log(inputHeight + " " + inputWeight);
 
 	// For loop will run time until all the rows are created
 
@@ -51,11 +47,7 @@ function makeGrid() {
 
 			let newCols = document.createElement("TD");
 
-			newCols.addEventListener('click', function respondToTheClick(evt) {
-              console.log('A paragraph was clicked.');
-              
-              newCols.style.backgroundColor = "grey";
-          	});
+			newCols.addEventListener('click', respondToTheClick);
 			//append the new TD with each row
 			newRow.appendChild(newCols);
 		};
@@ -69,17 +61,5 @@ function makeGrid() {
 };
 
 
-//This function will launch onChange of the HTML colour picker
-function myColour(){
-
-	//This will store the hex colour value once it has been changed. 
-	color = document.getElementById('colorPicker').value;
-
-	//Sets a new var d which selects the table and the rows first element.
-	let d = table.getElementsByTagName('td')[0];
-
-	//This changes the background of the table rows first element to the colour hex picker
-	d.style.backgroundColor = color;
-
-	
-};
+//Here we add the event listender to the table itself, but then set the target via the respondToClick function. Pretty cool¬
+table.addEventListener('click', respondToTheClick);
