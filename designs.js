@@ -41,8 +41,6 @@ function makeGrid() {
 		for (var j = 0; j < inputWeight; j++) {
 
 			let newCols = document.createElement("TD");
-
-			newCols.addEventListener('click', respondToTheClick);
 			//append the new TD with each row
 			newRow.appendChild(newCols);
 		};
